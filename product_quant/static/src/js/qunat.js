@@ -45,6 +45,8 @@ publicWidget.registry.WebsiteSale.include({
 //},
 
     _onClickSubmitnew: function (ev, forceSubmit) {
+        var form = $(ev.currentTarget).closest('form')
+        var qty = parseInt(form.find('input[name="add_qty"]').val())
         if ($(ev.currentTarget).is('#add_to_cart, #products_grid .a-submit') && !forceSubmit) {
             return;
         }
@@ -65,11 +67,33 @@ publicWidget.registry.WebsiteSale.include({
                 $aSubmit.append(loading);
             }
         }
+
+         var $qtyNavBar = $(".my_cart_quantity");
+         var init_cart_qty = parseInt($qtyNavBar[0].textContent)
+         var total_qty = init_cart_qty+qty
+        _.each($qtyNavBar, function (qty) {
+            var $qty = $(qty);
+            $qty.parents('li:first').removeClass('d-none');
+            $qty.html(total_qty).hide().fadeIn(600);
+        });
     },
 
 
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
