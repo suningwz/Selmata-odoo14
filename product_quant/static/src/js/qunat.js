@@ -76,7 +76,7 @@ publicWidget.registry.WebsiteSale.include({
             $qty.parents('li:first').removeClass('d-none');
             $qty.html(total_qty).hide().fadeIn(600);
         });
-        alert("Product added Succesfuly")
+        alert("Product Added Successfully")
         form.find('input[name="add_qty"]').val(1)
         if (form.find('a[title="Shopping cart"]').css("background-color")=="rgb(165, 128, 109)"){
 
