@@ -22,7 +22,7 @@ class WebsiteSaleInherit(Website):
             url = "/"
             category = request.env['product.public.category']
             pager = request.website.pager(url=url, total=12, page=0, step=12, scope=7, url_args={})
-            product_main = request.env['product.template'].sudo().search([('is_published', '=', True),('public_categ_ids.name', 'like', 'feature product')], order="create_date desc", limit=12)
+            product_main = request.env['product.template'].sudo().search([('is_published', '=', True),('public_categ_ids.name', 'like', 'Feature product')], order="create_date desc", limit=12)
             if product_main:
                 products = product_main
             else:
